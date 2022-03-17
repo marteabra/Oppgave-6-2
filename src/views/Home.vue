@@ -75,7 +75,13 @@
     <button @click="convert">Convert</button>
     <section class="section__nok">
       <div>NOK</div>
-      <input type="text" name="nok" placeholder="nok" class="nokvalue" />
+      <input
+        type="text"
+        name="nok"
+        placeholder="nok"
+        class="nokvalue"
+        v-model="nokResult"
+      />
     </section>
   </main>
 </template>
@@ -86,8 +92,6 @@ export default {
     return {
       nokResult: "",
       euroValue: "",
-      input: null,
-      output: 0,
     };
   },
 
@@ -97,7 +101,16 @@ export default {
       const res = await fetch(url);
       const result = await res.json();
       this.nokResult = result.nok;
-      console.log(nokResult);
+      console.log("hei");
+
+      this.euroValue = result.euro;
+
+      const input = this.euroValue;
+      const output = this.nokResult;
+
+      const endResult = input * output;
+
+      console.log(result);
     },
   },
 };
