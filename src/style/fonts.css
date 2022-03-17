@@ -1,6 +1,3 @@
-/* @font-face {
-	font-family: '...';
-	src: url('/fonts/...');
-	font-weight: normal;
-	font-style: normal;
-} */
+body {
+	font-size: 25px;
+}
