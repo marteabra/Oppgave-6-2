@@ -80,7 +80,7 @@
         name="nok"
         placeholder="nok"
         class="nokvalue"
-        v-model="nokResult"
+        v-model="endResult"
       />
     </section>
   </main>
@@ -92,6 +92,7 @@ export default {
     return {
       nokResult: "",
       euroValue: "",
+      endResult: "",
     };
   },
 
@@ -101,16 +102,11 @@ export default {
       const res = await fetch(url);
       const result = await res.json();
       this.nokResult = result.nok;
-      console.log("hei");
-
-      this.euroValue = result.euro;
 
       const input = this.euroValue;
-      const output = this.nokResult;
+      const endResult = result.nok * input;
 
-      const endResult = input * output;
-
-      console.log(result);
+      this.endResult = (Math.floor(endResult * 100) / 100).toFixed(1);
     },
   },
 };
